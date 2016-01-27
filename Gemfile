@@ -17,3 +17,4 @@ gem 'bourbon'
 gem 'neat'
 
 gem 'middleman-deploy'
+gem 'builder'
