@@ -1,0 +1,20 @@
+.projects, .message {
+  background: #eee;
+}
+
+.cards-wrapper, .message-wrapper {
+  @include outer-container;
+}
+
+.hero-picture {
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #eee;
+}
+
+.hero-copy {
+  p {
+    margin-bottom: 0;
+  }
+}
+

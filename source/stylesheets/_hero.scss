@@ -1,14 +1,14 @@
-.hero {  
+.hero {
   $base-border-radius: 3px !default;
   $action-color: #477DCA !default;
   $large-screen: em(860) !default;
-  $hero-background-top: #7F99BE; 
-  $hero-background-bottom: #20392B;
+  $hero-background-top: #24c6dc;
+  $hero-background-bottom: #514a9d;
   $hero-color: white;
   $gradient-angle: 10deg;
   $hero-image: 'https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png';
 
-  @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
+  @include background(linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
   background-color: #324766;
   background-position: top;
   background-repeat: no-repeat;
@@ -29,7 +29,7 @@
 
     .hero-copy {
       text-align: center;
-      
+
       h1 {
         color: $hero-color;
         font-size: 1.6em;
@@ -43,7 +43,7 @@
       p {
         color: $hero-color;
         line-height: 1.4em;
-        margin: 0 auto 3em auto; 
+        margin: 0 auto 3em auto;
 
         @include media($large-screen) {
           font-size: 1.1em;
