@@ -33,15 +33,19 @@
       h1 {
         color: $hero-color;
         font-size: 1.6em;
-        margin-bottom: 0.5em;
+        font-weight: 300;
+        margin-top: 0.1em;
+        margin-bottom: 0.1em;
+        letter-spacing: 3px;
 
         @include media($large-screen) {
-          font-size: 1.8em;
+          font-size: 3em;
         }
       }
 
       p {
-        color: $hero-color;
+        color: darken($hero-color, 5%);
+        font-weight: 300;
         line-height: 1.4em;
         margin: 0 auto 3em auto;
 
