@@ -18,3 +18,4 @@ gem 'neat'
 
 gem 'middleman-deploy'
 gem 'builder'
+gem 'middleman-google-analytics'
