@@ -18,134 +18,13 @@ title: Sebastian Armano
   <div class="cards-wrapper">
     <h1 class="headline"><span>Software Projects</span></h1>
     <div class="cards">
-      <div class="card">
-      <% link_to "https://festilite.herokuapp.com/#/participants" do %>
-        <div class="card-image">
-          <%= image_tag "festi.png" %>
-        </div>
-        <div class="card-header">
-          Festi
-        </div>
-          <div class="stats">
-            <ul>
-              <li>Rails<span>Backend</span></li>
-              <li>Ember<span>Front End</span></li>
-              <li>Bootstrap<span>Front End</span></li>
-            </ul>
-          </div>
-
-        <div class="card-copy">
-          <p>
-          Festi is an event management system, currently tailored to Shakori Hills and Virginia Key GrassRoots Music Festivals. We provide ticket check-in for 10,000+ participants (volunteers, performers, customers, vendors).
-          </p>
-        </div>
-    <% end  %>
-      </div>
-
-      <div class="card">
-        <% link_to "https://itunes.apple.com/us/app/apple-store/id979010199?pt=117727983&ct=web&mt=8" do %>
-        <div class="card-image">
-          <%= image_tag "vijilent.png" %>
-        </div>
-        <div class="card-header">
-          Vijilent iPhone app
-        </div>
-          <div class="stats">
-            <ul>
-              <li>Node<span>Back End</span></li>
-              <li>Objective-C<span>iPhone Front End</span></li>
-            </ul>
-          </div>
-        <div class="card-copy">
-          <p>Vijilent uses predictive analytics to give peace of mind to consumers who meet online. We search publicly available databases across the internet to calculate a V-Score—a rating system scoring users on a scale of 1-100 based on the Veracity, Verifiability, Virtue and V-fit of the individual's web presence.</p>
-        </div>
+      <% data["software_projects"].each do |project| %>
+        <%= partial "project_card", locals: { project: project } %>
       <% end %>
-      </div>
+    </div><!-- cards -->
+  </div><!-- cards-wrapper -->
+</div><!-- projects -->
 
-      <div class="card">
-        <% link_to "http://acumine.com.ar/" do %>
-        <div class="card-image">
-          <%= image_tag "acumine.png" %>
-        </div>
-        <div class="card-header">
-          Acumine Argentina Website
-        </div>
-          <div class="stats">
-            <ul>
-              <li>Photoshop<span>Design</span></li>
-              <li>Bootstrap<span>Front End</span></li>
-            </ul>
-          </div>
-        <div class="card-copy">
-          <p>Website of the first academic spin-off in Argentina. Acumine Argentina develops technologies to solve industrial problems like open pit mining safety, train operation logistics for steel manufactring companies and dispatch systems for firefighter forces.</p>
-        </div>
-      </div>
-    <% end  %>
-    </div>
-
-    <div class="cards">
-      <% link_to "https://github.com/sebarmano/Surf-Paddle" do %>
-      <div class="card">
-        <div class="card-image">
-          <%= image_tag "surfpaddle.png" %>
-        </div>
-        <div class="card-header">
-          Surf & Paddle Website
-        </div>
-          <div class="stats">
-            <ul>
-              <li>Middleman<span>Static Site Generator</span></li>
-              <li>Foundation<span>Front End</span></li>
-            </ul>
-          </div>
-        <div class="card-copy">
-          <p>The Iron Yard HTML & CSS project to replicate with pixel perfection a website mockup given a pdf file with the design</p>
-        </div>
-      <% end %>
-      </div>
-
-      <div class="card">
-        <% link_to "https://github.com/sebarmano/loopoll" do %>
-        <div class="card-image">
-          <%= image_tag "loop-oll.png" %>
-        </div>
-        <div class="card-header">
-          Loop-oll
-        </div>
-          <div class="stats">
-            <ul>
-              <li>Rails<span>Back End</span></li>
-              <li>jQuery/AJAX<span>Front End</span></li>
-              <li>Twitter<span>Integration</span></li>
-            </ul>
-          </div>
-        <div class="card-copy">
-          <p>Group project done together with Mae Beale for The Iron Yard. Loop-oll is a question and answers application to run surveys about anything. It provides charts for the given answers, it is integrated with Twitter to create and tweet your questions and uses AJAX to avoid unneeded page reloads.</p>
-        </div>
-      <% end %>
-      </div>
-
-      <div class="card">
-        <% link_to "https://github.com/sebarmano/Blackjack" do %>
-        <div class="card-image">
-          <%= image_tag "blackjack.jpg" %>
-        </div>
-        <div class="card-header">
-          Blackjack Game
-        </div>
-          <div class="stats">
-            <ul>
-              <li>Ruby<span>Language</span></li>
-            </ul>
-          </div>
-        <div class="card-copy">
-          <p>Command line Blackjack game that was the first project for The Iron Yard course after one week of training in ruby.</p>
-        </div>
-      <% end  %>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="message">
   <div class="message-wrapper">
     <div class="side-image">

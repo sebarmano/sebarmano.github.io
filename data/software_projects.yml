@@ -1,0 +1,77 @@
+- name: Festi
+  description: Festi is an event management system, currently tailored to
+    Shakori Hills and Virginia Key GrassRoots Music Festivals. We provide ticket
+    check-in for 10,000+ participants (volunteers, performers, customers,
+    vendors).
+  image: festi.png
+  url: https://festilite.herokuapp.com/#/participants
+  technologies:
+    - name: Rails
+      category: BackEend
+    - name: Ember
+      category: Front End
+    - name: Bootstrap
+      category: Front End
+
+- name: Vijilent iPhone app
+  description: Vijilent uses predictive analytics to give peace of mind to
+    consumers who meet online. We search publicly available databases across the
+    internet to calculate a V-Score—a rating system scoring users on a scale of
+    1-100 based on the Veracity, Verifiability, Virtue and V-fit of the
+    individual's web presence.
+  image: vijilent.png
+  url: https://itunes.apple.com/us/app/apple-store/id979010199?pt=117727983&ct=web&mt=8
+  technologies:
+    - name: Node
+      category: Back End
+    - name: Objective-C
+      category: iPhone Front End
+
+- name: Acumine Argentina Website
+  description: Website of the first academic spin-off in Argentina. Acumine
+    Argentina develops technologies to solve industrial problems like open pit
+    mining safety, train operation logistics for steel manufactring companies
+    and dispatch systems for firefighter forces.
+  image: acumine.png
+  url: http://acumine.com.ar/
+  technologies:
+    - name: Photoshop
+      category: Design
+    - name: Bootstrap
+      category: Front End
+
+- name: Surf & Paddle Website
+  description: The Iron Yard HTML & CSS project to replicate with pixel
+    perfection a website mockup given a pdf file with the design
+  image: surfpaddle.png
+  url: https://github.com/sebarmano/Surf-Paddle
+  technologies:
+    - name: Middleman
+      category: Static Site Generator
+    - name: Foundation
+      category: Front End
+
+- name: Loop-oll
+  description: Group project done together with Mae Beale for The Iron Yard.
+    Loop-oll is a question and answers application to run surveys about
+    anything. It provides charts for the given answers, it is integrated with
+    Twitter to create and tweet your questions and uses AJAX to avoid unneeded
+    page reloads.
+  image: loop-oll.png
+  url: https://github.com/sebarmano/loopoll
+  technologies:
+    - name: Rails
+      category: Back End
+    - name: jQuery
+      category: Front End
+    - name: Twitter
+      category: API Integration
+
+- name: Blackjack Game
+  description: Command line Blackjack game that was the first project for The
+    Iron Yard course after one week of training in ruby.
+  image: blackjack.jpg
+  url: https://github.com/sebarmano/Blackjack
+  technologies:
+    - name: Ruby
+      category: Language
