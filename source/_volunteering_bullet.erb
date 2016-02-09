@@ -1,0 +1,11 @@
+<li class="bullet">
+  <div class="bullet-icon">
+    <%= image_tag vol["image"] %>
+  </div>
+  <div class="bullet-content">
+    <% link_to vol["url"] do %>
+      <h2><%= vol["title"] %></h2>
+    <% end %>
+    <p><%= vol["description"] %></p>
+  </div>
+</li>

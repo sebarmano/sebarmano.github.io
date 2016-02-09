@@ -5,9 +5,8 @@ title: Sebastian Armano
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-copy">
-      <%= image_tag "sebastian.jpg", class: "hero-picture" %>
       <h1>Sebastian Armano</h1>
-      <p> I'm an Electrical Engineer, and Back End Developer Graduate at The Iron Yard Academy. 
+      <p> I'm an Electrical Engineer, and Developer Graduate at The Iron Yard Academy. 
       I'm also a co-founder of the first Electronics R&D academic spin-off in Argentina.</p>
     </div>
     <%= link_to "Resume", "resources/resume_web.pdf", class: "button" %>
@@ -24,6 +23,28 @@ title: Sebastian Armano
     </div><!-- cards -->
   </div><!-- cards-wrapper -->
 </div><!-- projects -->
+
+<div class="projects">
+  <div class="cards-wrapper">
+    <h1 class="headline"><span>Hardware Projects</span></h1>
+    <div class="cards">
+      <% data["hardware_projects"].each do |project| %>
+        <%= partial "project_card", locals: { project: project } %>
+      <% end %>
+    </div><!-- cards -->
+  </div><!-- cards-wrapper -->
+</div><!-- projects -->
+
+<div class="volunteering">
+  <div class="bullets-wrapper">
+    <h1 class="headline"><span>Volunteering & Social</span></h1>
+    <ul class="bullets">
+    <% data["volunteering"].each do |vol| %>
+      <%= partial "volunteering_bullet", locals: { vol: vol } %>
+    <% end %>
+    </ul>
+  </div>
+</div>
 
 <div class="message">
   <div class="message-wrapper">

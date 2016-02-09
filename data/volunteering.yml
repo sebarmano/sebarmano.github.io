@@ -1,0 +1,26 @@
+- title: TIY API Meetup Organizer
+  description: TIY Alumni Presentation Interactive Meetup has been created to
+    keep being in touch with other The Iron Yard alumni and as a way of sharing
+    what we've been doing in our jobs, practicing giving talks and having an
+    introduction to new tools and technologies (or learning new ways of using
+    the ones we already know).
+  url: http://www.meetup.com/The-Iron-Yard-Alumni-Presentation-Interactive/
+  image: meetup.png
+
+- title: TA at RailsBridge
+  description: RailsBridge organizes and teaches free programming workshops in
+    Ruby on Rails, targeted at groups of people that are underrepresented in tech
+    with the aim to enrich the quality of the work by leveraging diversity.
+  url: http://www.railsbridge.org/
+  image: railsbridge.png
+
+- title: OS Setup at Kramden
+  description: Kramden is a North Carolina organization with the mission of
+    collect, refurbish and award computers to students and families without a
+    computer in their home, inspire students to succeed by teaching them
+    critical computer, software and Internet skills and recycle and reuse
+    donated computers and parts; extending their lives and reducing e-waste.
+  url: kramden.org
+  image: kramden.jpg
+
+

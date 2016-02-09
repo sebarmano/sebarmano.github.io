@@ -1,8 +1,12 @@
-.projects, .message {
+body {
   background: #eee;
 }
 
-.cards-wrapper, .message-wrapper {
+.projects, .message, .volunteering {
+  background: #eee;
+}
+
+.cards-wrapper, .message-wrapper, .bullets-wrapper {
   @include outer-container;
 }
 
