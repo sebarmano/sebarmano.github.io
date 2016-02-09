@@ -16,8 +16,7 @@
   }
 
   .images-wrapper {
-    // @include background(url("../images/seb-message.jpg"), linear-gradient($side-image-background-top, $side-image-background-bottom), no-repeat $side-image-background-top scroll);
-    background: url("../images/seb-message.jpg");
+    background: url("../images/seb-message-small-screen.jpg");
     background-position: 75% 75%;
     background-color: $side-image-background-top;
     background-size: cover;
@@ -28,6 +27,7 @@
 
     @include media($large-screen) {
       @include span-columns(4);
+      background: url("../images/seb-message.jpg");
       background-position: bottom;
       background-size: cover;
       border-right: $side-image-border;
