@@ -34,6 +34,21 @@
 
     <%= yield %>
 
+    <footer class="footer">
+      <div class="content-wrapper">
+        <div class="footer-2" role="contentinfo">
+          <ul>
+            <li>©Copyright Sebastian Armano 2016</li>
+          </ul>
+
+          <div class="footer-secondary-links">
+            <ul>
+              <li><%= link_to "Created with Middleman", "https://middlemanapp.com/" %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <%= google_analytics_universal_tag %>
   </body>

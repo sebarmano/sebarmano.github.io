@@ -24,6 +24,14 @@
 //   }
 // }
 
+.footer {
+  background: #6D6D6D;
+}
+
+.content-wrapper {
+  @include outer-container;
+}
+
 .footer-2 {
   $base-spacing: 1.5em !default;
   $action-color: #477DCA !default;
@@ -34,8 +42,7 @@
   $footer-link-color: transparentize($footer-color, 0.6);
   $footer-disclaimer-color: transparentize($footer-color, 0.6);
 
-  background: $footer-background;
-  padding: $base-spacing;
+  padding: $base-spacing 0;
   width: 100%;
   display: inline-block;
 
@@ -57,18 +64,17 @@
     line-height: 1.5em;
     margin: 0 0 1em 0;
     padding: 0;
+    color: #D3D3D3;
 
     @include media($large-screen) {
       float: left;
       line-height: 1.8em;
-      margin-left: 1em;
       margin-bottom: 0;
     }
   }
 
   ul li {
     list-style: none;
-    padding-right: 1em;
 
     @include media($large-screen) {
       display: inline;
