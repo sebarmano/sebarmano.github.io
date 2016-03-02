@@ -1,25 +1,29 @@
 .headline{
-overflow: hidden;
-text-align: center;
-font-size: 2.5em;
-font-weight: 300;
-padding-top: 60px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 300;
+  padding-top: 60px;
+
+  @include media($large-screen) {
+    font-size: 2.5em;
+  }
 }
 .headline > span{
-position: relative;
-display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 .headline > span:before, .headline > span:after{
-content: '';
-position: absolute;
-top: 50%;
-border-bottom: 2px solid #d2d2d2;
-width: 592px; /* half of limiter */
-margin: 0 20px;
+  content: '';
+  position: absolute;
+  top: 50%;
+  border-bottom: 2px solid #d2d2d2;
+  width: 592px; /* half of limiter */
+  margin: 0 20px;
 }
 .headline > span:before{
-right: 100%;
+  right: 100%;
 }
 .headline > span:after{
-left: 100%;
+  left: 100%;
 }

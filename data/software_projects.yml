@@ -7,7 +7,7 @@
   url: https://festilite.herokuapp.com/#/participants
   technologies:
     - name: Rails
-      category: BackEend
+      category: Back End
     - name: Ember
       category: Front End
     - name: Bootstrap
@@ -30,7 +30,7 @@
 - name: Acumine Argentina Website
   description: Website of the first academic spin-off in Argentina. Acumine
     Argentina develops technologies to solve industrial problems like open pit
-    mining safety, train operation logistics for steel manufactring companies
+    mining safety, train operation logistics for steel manufacturing companies
     and dispatch systems for firefighter forces.
   image: acumine.png
   url: http://acumine.com.ar/
@@ -67,11 +67,15 @@
     - name: Twitter
       category: API Integration
 
-- name: Blackjack Game
-  description: Command line Blackjack game that was the first project for The
-    Iron Yard course after one week of training in ruby.
-  image: blackjack.jpg
-  url: https://github.com/sebarmano/Blackjack
+- name: Garage
+  description: Work in progress. Management of a car workshop, including
+    appointments, employees and user accounts. Features include reporting tools
+    for managers, user profiles to control car fixes, sms & email notifications,
+    employees schedule management based on appointments and jobs.
+  image: garage.jpg
+  url: https://github.com/sebarmano/garage
   technologies:
-    - name: Ruby
-      category: Language
+    - name: Rails
+      category: Back End
+    - name: Spanish Language
+      category: Internationalization / Localization
