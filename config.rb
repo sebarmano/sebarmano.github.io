@@ -24,7 +24,15 @@ configure :development do
 end
 
 activate :directory_indexes
+activate :blog do |blog|
+  blog.prefix = "blog"
+  blog.layout = "blog"
+  blog.tag_template = "tag.html"
+  blog.calendar_template = "calendar.html"
+end
 
+page "feed.xml", layout: false
+#
 ###
 # Helpers
 ###
