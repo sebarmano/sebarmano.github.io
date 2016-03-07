@@ -12,6 +12,7 @@ gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 gem 'middleman', '>= 4.0.0'
 gem 'middleman-livereload'
 gem 'middleman-blog'
+gem 'middleman-syntax'
 
 gem 'bitters'
 gem 'bourbon'
@@ -20,3 +21,5 @@ gem 'neat'
 gem 'middleman-deploy'
 gem 'builder'
 gem 'middleman-google-analytics'
+
+gem 'redcarpet'
