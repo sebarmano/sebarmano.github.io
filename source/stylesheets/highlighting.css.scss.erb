@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+ <%= Rouge::Themes::Github.render(:scope => '.highlight') %>
+
+$blog-base-font-family: 'Source Sans Pro', sans-serif;
+
+.blog-wrapper  {
+  p {
+    font-family: $blog-base-font-family;
+    line-height: 1.9rem;
+    font-size: 1.1em;
+    margin: 0 0 1.5em;
+  }
+}
+
+ .gutter {
+   width: 30px;
+   background: #eee;
+   color: #b1b1b1;
+ }
+
+ .highlight {
+   font-size: 1.2em;
+ }
+
+ .highlight table td.code {
+   padding-left: 10px;
+ }
+
+ code {
+   background: #eee; 
+   padding: 0 5px 2px;
+   border-radius: 3px;
+   font-size: 1.2em;
+ }

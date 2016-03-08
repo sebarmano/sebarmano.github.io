@@ -16,9 +16,7 @@ layout: blog
     <li>
       <h3><%= link_to article.title, article %></h3>
       <h5><%= article.date.strftime('%b %e') %></h5>
-      <!-- use article.summary(250) if you have Nokogiri available to show just
-        the first 250 characters -->
-       <p><%= article.body %></p>
+       <p><%= article.summary(250) %></p>
     </li>
   <% end %>
 </ul>
