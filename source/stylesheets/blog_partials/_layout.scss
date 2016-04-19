@@ -5,6 +5,13 @@
 .blog-wrapper {
   @include span-columns(8);
   @include shift(2);
+
+  p {
+    font-family: $blog-base-font-family;
+    line-height: 1.9rem;
+    font-size: 1.2em;
+    margin: 1.5em  0 1.5em;
+  }
 }
 
 ol {
