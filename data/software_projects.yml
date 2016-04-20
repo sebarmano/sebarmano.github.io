@@ -1,3 +1,23 @@
+- name: Garage
+  description: Work in progress. Management of a car workshop, including
+    appointments, employees and user accounts. Features include reporting tools
+    for managers, user profiles to control car fixes, SMS & email notifications,
+    employees schedule management based on appointments and jobs.
+  image: garage.jpg
+  url:
+  links:
+    - name: Code
+      icon: github-square
+      url: https://github.com/sebarmano/garage
+    - name: Live site
+      icon: chrome
+      url: https://garage-staging.herokuapp.com
+  technologies:
+    - name: Rails
+      category: Back End
+    - name: Spanish Language
+      category: Internationalization / Localization
+
 - name: Festi
   description: Festi is an event management system, currently tailored to
     Shakori Hills and Virginia Key GrassRoots Music Festivals. We provide ticket
@@ -33,36 +53,6 @@
     - name: Objective-C
       category: iPhone Front End
 
-- name: Acumine Argentina Website
-  description: Website of the first academic spin-off in Argentina. Acumine
-    Argentina develops technologies to solve industrial problems like open pit
-    mining safety, train operation logistics for steel manufacturing companies
-    and dispatch systems for firefighter forces.
-  image: acumine.png
-  links:
-    - name: Live Site
-      icon: chrome
-      url: http://acumine.com.ar/
-  technologies:
-    - name: Photoshop
-      category: Design
-    - name: Bootstrap
-      category: Front End
-
-- name: Surf & Paddle Website
-  description: The Iron Yard HTML & CSS project to replicate with pixel
-    perfection a website mockup given a pdf file with the design
-  image: surfpaddle.png
-  links:
-    - name: Code
-      icon: github-square
-      url: https://github.com/sebarmano/Surf-Paddle
-  technologies:
-    - name: Middleman
-      category: Static Site Generator
-    - name: Foundation
-      category: Front End
-
 - name: Loop-oll
   description: Group project done together with Mae Beale for The Iron Yard.
     Loop-oll is a question and answers application to run surveys about
@@ -85,22 +75,33 @@
     - name: Twitter
       category: API Integration
 
-- name: Garage
-  description: Work in progress. Management of a car workshop, including
-    appointments, employees and user accounts. Features include reporting tools
-    for managers, user profiles to control car fixes, sms & email notifications,
-    employees schedule management based on appointments and jobs.
-  image: garage.jpg
-  url:
+- name: Acumine Argentina Website
+  description: Website of the first academic spin-off in Argentina. Acumine
+    Argentina develops technologies to solve industrial problems like open pit
+    mining safety, train operation logistics for steel manufacturing companies
+    and dispatch systems for firefighter forces.
+  image: acumine.png
+  links:
+    - name: Live Site
+      icon: chrome
+      url: http://acumine.com.ar/
+  technologies:
+    - name: Photoshop
+      category: Design
+    - name: Bootstrap
+      category: Front End
+
+- name: Surf & Paddle Website
+  description: The Iron Yard HTML & CSS project to replicate with pixel
+    perfection a website mockup given a pdf file with the design.
+  image: surfpaddle.png
   links:
     - name: Code
       icon: github-square
-      url: https://github.com/sebarmano/garage
-    - name: Live site
-      icon: chrome
-      url: https://garage-staging.herokuapp.com
+      url: https://github.com/sebarmano/Surf-Paddle
   technologies:
-    - name: Rails
-      category: Back End
-    - name: Spanish Language
-      category: Internationalization / Localization
+    - name: Middleman
+      category: Static Site Generator
+    - name: Foundation
+      category: Front End
+

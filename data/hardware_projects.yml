@@ -29,7 +29,7 @@
 - name: CELAE
   description: Dispatch system utilized by firefighter forces in small cities in
     Argentina to summon firemen on duty using algorithms that allow quick
-    response and instant replacement for not available ones.
+    response and instant replacement for unavailable ones.
   image: celae.jpg
   links:
     - name: Info
