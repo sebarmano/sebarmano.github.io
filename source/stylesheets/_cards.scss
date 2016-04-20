@@ -27,7 +27,6 @@
   border-radius: $base-border-radius;
   border: $card-border;
   box-shadow: 0 2px 4px darken($base-background-color, 10%);
-  cursor: pointer;
   margin: 0 $card-margin $base-spacing $card-margin;
   position: relative;
 
@@ -57,6 +56,20 @@
     line-height: 1.5em;
     padding: ($base-spacing / 3) ($base-spacing / 3);
     color: black;
+
+    div.link-icons {
+      float: right;
+      font-size: 1.1em;
+
+      i.fa {
+        padding-right: 10px;
+        color: black;
+
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
   }
 
   .card-copy {
@@ -72,8 +85,6 @@
 
   &:focus,
   &:hover {
-    cursor: pointer;
-
     img {
       opacity: $card-image-hover-opacity;
     }
@@ -126,4 +137,5 @@
     font-size: 0.7em;
     font-weight: normal;
   }
+
 }

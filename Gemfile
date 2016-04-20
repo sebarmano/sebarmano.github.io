@@ -9,17 +9,14 @@ gem 'wdm', '~> 0.1.0', platforms: [:mswin, :mingw]
 gem 'tzinfo-data', platforms: [:mswin, :mingw, :jruby]
 
 # Middleman Gems
-gem 'middleman', '>= 4.0.0'
-gem 'middleman-livereload'
-gem 'middleman-blog'
-gem 'middleman-syntax'
-
 gem 'bitters'
 gem 'bourbon'
-gem 'neat'
-
-gem 'middleman-deploy'
 gem 'builder'
+gem 'middleman', '>= 4.0.0'
+gem 'middleman-blog'
+gem 'middleman-deploy'
 gem 'middleman-google-analytics'
-
+gem 'middleman-livereload'
+gem 'middleman-syntax'
+gem 'neat'
 gem 'redcarpet'

@@ -3,7 +3,10 @@
     Display Unit for Acumine's 4CAST, one of the leading collision avoidance
     safety systems for open pit mines.
   image: psp.jpg
-  url: https://youtu.be/uBcpNxVOsoI
+  links:
+    - name: Video
+      icon: youtube-play
+      url: https://youtu.be/uBcpNxVOsoI
   technologies:
     - name: Altium
       category: CAD Software
@@ -13,9 +16,12 @@
 - name: MICA2 UNS
   description: PCB Design of general purpose embedded systems sensor network
     nodes utilized in  research projects at the Universidad Nacional del Sur in
-    Argentina. The design was based on the University of Berkley device. 
+    Argentina. The design was based on the University of Berkley device.
   image: mica2uns.jpg
-  url: resources/mica2uns.pdf
+  links:
+    - name: Datasheet
+      icon: file-text
+      url: resources/mica2uns.pdf
   technologies:
     - name: 8-bit Microcontroller & RF Chips
       category: Main Systems on Board
@@ -25,7 +31,10 @@
     Argentina to summon firemen on duty using algorithms that allow quick
     response and instant replacement for not available ones.
   image: celae.jpg
-  url: www.acumine.com.ar#productos 
+  links:
+    - name: Info
+      icon: info-circle
+      url: www.acumine.com.ar#productos
   technologies:
     - name: Cellular Network
-      category: Technology 
+      category: Technology

@@ -1,24 +1,29 @@
 <div class="card">
-  <% link_to project["url"] do %>
-    <div class="card-image">
-      <%= image_tag project["image"] %>
-    </div>
-    <div class="card-header">
-      <%= project["name"] %>
-    </div>
-    <div class="stats">
-      <ul>
-        <% project["technologies"].each do |technology| %>
-          <li>
-            <%= technology["name"] %>
-            <span><%= technology["category"] %></span>
-          </li>
+  <div class="card-image">
+    <%= image_tag project["image"] %>
+  </div>
+  <div class="card-header">
+    <%= project["name"] %>
+    <div class="link-icons">
+      <% project["links"].each do |link| %>
+        <% link_to link["url"] do %>
+          <%= content_tag :i, "", class: "fa fa-#{link["icon"]}" %>
         <% end %>
-      </ul>
+      <% end %>
     </div>
+  </div>
+  <div class="stats">
+    <ul>
+      <% project["technologies"].each do |technology| %>
+        <li>
+          <%= technology["name"] %>
+          <span><%= technology["category"] %></span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
-    <div class="card-copy">
-      <p><%= project["description"] %></p>
-    </div>
-  <% end  %>
+  <div class="card-copy">
+    <p><%= project["description"] %></p>
+  </div>
 </div>

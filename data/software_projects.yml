@@ -4,7 +4,10 @@
     check-in for 10,000+ participants (volunteers, performers, customers,
     vendors).
   image: festi.png
-  url: https://festilite.herokuapp.com/#/participants
+  links:
+    - name: Live site
+      icon: chrome
+      url: https://festilite.herokuapp.com/#/participants
   technologies:
     - name: Rails
       category: Back End
@@ -20,10 +23,13 @@
     1-100 based on the Veracity, Verifiability, Virtue and V-fit of the
     individual's web presence.
   image: vijilent.png
-  url: https://itunes.apple.com/us/app/apple-store/id979010199?pt=117727983&ct=web&mt=8
+  links:
+    - name: App Store
+      icon: apple
+      url: https://itunes.apple.com/us/app/apple-store/id979010199?pt=117727983&ct=web&mt=8
   technologies:
     - name: Node
-      category: Back End
+      category: Back End API
     - name: Objective-C
       category: iPhone Front End
 
@@ -33,7 +39,10 @@
     mining safety, train operation logistics for steel manufacturing companies
     and dispatch systems for firefighter forces.
   image: acumine.png
-  url: http://acumine.com.ar/
+  links:
+    - name: Live Site
+      icon: chrome
+      url: http://acumine.com.ar/
   technologies:
     - name: Photoshop
       category: Design
@@ -44,7 +53,10 @@
   description: The Iron Yard HTML & CSS project to replicate with pixel
     perfection a website mockup given a pdf file with the design
   image: surfpaddle.png
-  url: https://github.com/sebarmano/Surf-Paddle
+  links:
+    - name: Code
+      icon: github-square
+      url: https://github.com/sebarmano/Surf-Paddle
   technologies:
     - name: Middleman
       category: Static Site Generator
@@ -58,7 +70,13 @@
     Twitter to create and tweet your questions and uses AJAX to avoid unneeded
     page reloads.
   image: loop-oll.png
-  url: https://github.com/sebarmano/loopoll
+  links:
+    - name: Code
+      icon: github-square
+      url: https://github.com/sebarmano/loopoll
+    - name: Live site
+      icon: chrome
+      url: loopoll.herokuapp.com
   technologies:
     - name: Rails
       category: Back End
@@ -73,7 +91,14 @@
     for managers, user profiles to control car fixes, sms & email notifications,
     employees schedule management based on appointments and jobs.
   image: garage.jpg
-  url: https://github.com/sebarmano/garage
+  url:
+  links:
+    - name: Code
+      icon: github-square
+      url: https://github.com/sebarmano/garage
+    - name: Live site
+      icon: chrome
+      url: garage-staging.herokuapp.com
   technologies:
     - name: Rails
       category: Back End
