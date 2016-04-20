@@ -34,7 +34,7 @@
   links:
     - name: Info
       icon: info-circle
-      url: www.acumine.com.ar#productos
+      url: http://www.acumine.com.ar#productos
   technologies:
     - name: Cellular Network
       category: Technology

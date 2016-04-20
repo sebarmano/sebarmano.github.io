@@ -76,7 +76,7 @@
       url: https://github.com/sebarmano/loopoll
     - name: Live site
       icon: chrome
-      url: loopoll.herokuapp.com
+      url: https://loopoll.herokuapp.com
   technologies:
     - name: Rails
       category: Back End
@@ -98,7 +98,7 @@
       url: https://github.com/sebarmano/garage
     - name: Live site
       icon: chrome
-      url: garage-staging.herokuapp.com
+      url: https://garage-staging.herokuapp.com
   technologies:
     - name: Rails
       category: Back End
