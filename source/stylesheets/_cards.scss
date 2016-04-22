@@ -12,6 +12,8 @@
   $action-color: #477DCA !default;
   $dark-gray: #333 !default;
   $base-font-color: $dark-gray !default;
+  $icon-link-color: transparentize($base-font-color, 0.3);
+  $icon-link-color-hover: $base-font-color;
   $card-border-color: $base-border-color;
   $card-border: 1px solid $card-border-color;
   $card-background: lighten($card-border-color, 10%);
@@ -63,7 +65,11 @@
 
       i.fa {
         padding-right: 10px;
-        color: black;
+        color: $icon-link-color;
+
+        &:hover {
+          color: $icon-link-color-hover;
+        }
 
         &:last-child {
           padding-right: 0;
