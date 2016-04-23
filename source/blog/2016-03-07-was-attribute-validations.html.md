@@ -44,13 +44,13 @@ end
 
 That seems to work fine until we have to deal with the situation of having to
 _update_ a record with all the tickets given. For example this can happen as
-administrators trying to fix an error in one of the purchased quantity. For
-example we want to fix a ticket record of 8 total tickets (and 8 given).
-The record to update is going to validate with the `tickets available` method
-from above. However, the count `remaining - quantity < 0` will return _always_ a
-negative value, as the remaining tickets is 0 (we had 8 tickets given, all the
-available ones). Therefore the validation doesn't pass and we are not able to
-update the record anymore.
+administrators trying to fix an error in one of the purchased quantity.  We want
+to fix a ticket record of 8 total tickets (and 8 given).  The record to update
+is going to validate with the `tickets available` method from above. However,
+the count `remaining - quantity < 0` will return _always_ a negative value, as
+the remaining tickets is 0 (we had 8 tickets given, all the available ones).
+Therefore the validation doesn't pass and we are not able to update the record
+anymore.
 
 Basically, the problem here is that we want to _replace_ the quantity of tickets
 given, but our validation is taking into account the quantity of tickets
@@ -62,7 +62,7 @@ right amount of tickets.
 
 To do this, only on update, we need to get the quantity of tickets already given
 (and stored in the record we want to fix), but we know that the variable
-`quantity` coitains the _new_ value of tickets given, not the old one. We need
+`quantity` contains the _new_ value of tickets given, not the old one. We need
 the value of `quantity` in two different points in time, before and after the
 update.
 
