@@ -1,15 +1,15 @@
 ---
-title: Learned 00001 - Javascript Objects vs JSON
+title: Field Notes 1 - Javascript Objects vs JSON
 date: 2016-04-28 3:24 UTC
-tags: learned, json, javascript, objects
+tags: notes, json, javascript, objects
 ---
 
 Today I've learned something about **Javascript Objects** and **JSON**. JSON
 stands for _Javascript Object Notation_. It is widely used in APIs because as
 its name mentions, it is compatible with Javascript, which is by far the most
-used client side language.
+used web client side language.
 
-JSON looks a lot like a Javascript object. 
+JSON looks a lot like a Javascript object.
 
 However, despite being compatible, JSON has a minor (but important) difference
 with a regular Object. Here are two examples, the first is a plain Javascript
