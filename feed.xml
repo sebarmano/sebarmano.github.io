@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog Name</title>
+  <subtitle>Blog subtitle</subtitle>
+  <id>http://blog.url.com/blog</id>
+  <link href="http://blog.url.com/blog"/>
+  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <updated>2016-04-28T23:25:00-04:00</updated>
+  <author>
+    <name>Blog Author</name>
+  </author>
+  <entry>
+    <title>Field Notes 3 - Push git branches with different name</title>
+    <link rel="alternate" href="http://blog.url.com/blog/2016/04/29/field-notes-00003-git-branch-naming/"/>
+    <id>http://blog.url.com/blog/2016/04/29/field-notes-00003-git-branch-naming/</id>
+    <published>2016-04-28T23:25:00-04:00</published>
+    <updated>2016-04-28T23:26:30-04:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Several times it has happened to me that I think &amp;ldquo;It would be really nice to
+have a &amp;lsquo;save as&amp;rsquo; like in Word for a git branch&amp;rdquo;. What I mean is that it would be
+useful to be able to save the current branch with a different name (mostly when
+pushing it to Github).&lt;/p&gt;
+
+&lt;p&gt;This can result handy for many reasons. Maybe you are working in a team with the
+rule that your initials have to be prepended to the name of the branch (and you
+don&amp;rsquo;t want to have them in your machine because is confusing and redundant). Or
+you realize that the name of the branch is not that representative to the code
+written and it would be better to change it. Perhaps you misspelled the branch
+name and you would like to fix the typo.&lt;/p&gt;
+
+&lt;p&gt;It doesn&amp;rsquo;t matter the reason, git should be able to cope with this, and it turns
+out it does.&lt;/p&gt;
+
+&lt;p&gt;To be able to change the name of the branch on push, you can for example use
+this command:&lt;/p&gt;
+&lt;div class="highlight shell"&gt;&lt;table style="border-spacing: 0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="gutter gl" style="text-align: right"&gt;&lt;pre class="lineno"&gt;1&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;  git push origin sa-new-feature:sa-new-feature
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As you see, after &lt;code&gt;git push&lt;/code&gt; comes the name of the remote branch and then
+&lt;code&gt;your-existing-branch:branch-you-are-pushing-to&lt;/code&gt;. Thus, in this case, your
+&lt;em&gt;new-feature&lt;/em&gt; branch will be pushed as &lt;em&gt;sa-new-feature&lt;/em&gt; in origin.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Field Notes 1 - Javascript Objects vs JSON</title>
+    <link rel="alternate" href="http://blog.url.com/blog/2016/04/28/field-notes-00001-json/"/>
+    <id>http://blog.url.com/blog/2016/04/28/field-notes-00001-json/</id>
+    <published>2016-04-27T23:24:00-04:00</published>
+    <updated>2016-04-28T23:29:30-04:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Today I&amp;rsquo;ve learned something about &lt;strong&gt;Javascript Objects&lt;/strong&gt; and &lt;strong&gt;JSON&lt;/strong&gt;. JSON
+stands for &lt;em&gt;Javascript Object Notation&lt;/em&gt;. It is widely used in APIs because as
+its name mentions, it is compatible with Javascript, which is by far the most
+used web client side language.&lt;/p&gt;
+
+&lt;p&gt;JSON looks a lot like a Javascript object.&lt;/p&gt;
+
+&lt;p&gt;However, despite being compatible, JSON has a minor (but important) difference
+with a regular Object. Here are two examples, the first is a plain Javascript
+object, the second a JSON one. Can you spot the difference?&lt;/p&gt;
+&lt;div class="highlight plaintext"&gt;&lt;table style="border-spacing: 0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="gutter gl" style="text-align: right"&gt;&lt;pre class="lineno"&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;// Javascript Object
+
+var person = {
+  name: "Sebastian Armano",
+  twitter : "@sebarmano",
+  city: "Jersey City, NJ"
+};
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="highlight plaintext"&gt;&lt;table style="border-spacing: 0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="gutter gl" style="text-align: right"&gt;&lt;pre class="lineno"&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;// JSON
+
+var person = {
+  "name": "Sebastian Armano",
+  "twitter": "@sebarmano",
+  "city": "Jersey City, NJ"
+};
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Even though both look a lot alike, JSON keys &lt;em&gt;are strings&lt;/em&gt;, while Javascript
+ones are not. This is important for example to be able to understand if a
+variable would be JSON compatible and could be read by any API consumer.&lt;/p&gt;
+
+&lt;p&gt;JSON is always compatible with Javascript, but that&amp;rsquo;s not true the other way
+around.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Validation of attributes at different time points</title>
+    <link rel="alternate" href="http://blog.url.com/blog/2016/03/07/was-attribute-validations/"/>
+    <id>http://blog.url.com/blog/2016/03/07/was-attribute-validations/</id>
+    <published>2016-03-07T11:56:00-05:00</published>
+    <updated>2016-04-23T17:34:49-04:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Say that we are creating an app to sell tickets. The idea is that we have a
+certain amount of tickets to sell and we want to check that we are not
+giving more tickets that the ones we have available.&lt;/p&gt;
+
+&lt;p&gt;One simple way of doing this is checking in the server side that the quantity
+we are giving is equal or less than the remaining quantity.&lt;/p&gt;
+
+&lt;p&gt;Say that we have a Ticket and a Purchase models in our app like the following:&lt;/p&gt;
+&lt;div class="highlight ruby"&gt;&lt;table style="border-spacing: 0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="gutter gl" style="text-align: right"&gt;&lt;pre class="lineno"&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# models/ticket.rb&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Ticket&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="no"&gt;ActiveRecord&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Base&lt;/span&gt;
+  &lt;span class="n"&gt;has_many&lt;/span&gt; &lt;span class="ss"&gt;:purchases&lt;/span&gt;
+  &lt;span class="n"&gt;validate&lt;/span&gt; &lt;span class="ss"&gt;:tickets_available&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;remaining&lt;/span&gt;
+    &lt;span class="n"&gt;total&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;given&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;given&lt;/span&gt;
+    &lt;span class="n"&gt;purchases&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;pluck&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:quantity&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;reduce&lt;/span&gt;&lt;span class="p"&gt;(:&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class="highlight ruby"&gt;&lt;table style="border-spacing: 0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="gutter gl" style="text-align: right"&gt;&lt;pre class="lineno"&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+10&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# models/purchase.rb&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt;  &lt;span class="nc"&gt;Purchase&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="no"&gt;ActiveRecord&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Base&lt;/span&gt;
+  &lt;span class="n"&gt;belongs_to&lt;/span&gt; &lt;span class="ss"&gt;:ticket&lt;/span&gt;
+
+  &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;tickets_available&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;ticket&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;remaining&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;quantity&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+      &lt;span class="n"&gt;errors&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:quantity&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"too many tickets given"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;That seems to work fine until we have to deal with the situation of having to
+&lt;em&gt;update&lt;/em&gt; a record with all the tickets given. For example this can happen as
+administrators trying to fix an error in one of the purchased quantity.  We want
+to fix a ticket record of 8 total tickets (and 8 given).  The record to update
+is going to validate with the &lt;code&gt;tickets available&lt;/code&gt; method from above. However,
+the count &lt;code&gt;remaining - quantity &amp;lt; 0&lt;/code&gt; will return &lt;em&gt;always&lt;/em&gt; a negative value, as
+the remaining tickets is 0 (we had 8 tickets given, all the available ones).
+Therefore the validation doesn&amp;rsquo;t pass and we are not able to update the record
+anymore.&lt;/p&gt;
+
+&lt;p&gt;Basically, the problem here is that we want to &lt;em&gt;replace&lt;/em&gt; the quantity of tickets
+given, but our validation is taking into account the quantity of tickets
+&lt;em&gt;already given&lt;/em&gt; in a previous purchase. We need to find a way of counting the
+remaining tickets as if we had the tickets for this record still to give, not
+already given. In other words, we have to simulate as if the customer would have
+given  back the tickets purchased and we correct the purchase giving them the
+right amount of tickets.&lt;/p&gt;
+
+&lt;p&gt;To do this, only on update, we need to get the quantity of tickets already given
+(and stored in the record we want to fix), but we know that the variable
+&lt;code&gt;quantity&lt;/code&gt; contains the &lt;em&gt;new&lt;/em&gt; value of tickets given, not the old one. We need
+the value of &lt;code&gt;quantity&lt;/code&gt; in two different points in time, before and after the
+update.&lt;/p&gt;
+
+&lt;p&gt;Fortunately Rails has a way of doing this by adding the suffix &lt;code&gt;_was&lt;/code&gt; to the
+name of the attribute in order to get its previous value. In this way we can
+replace the method above for the following one:&lt;/p&gt;
+&lt;div class="highlight ruby"&gt;&lt;table style="border-spacing: 0"&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class="gutter gl" style="text-align: right"&gt;&lt;pre class="lineno"&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;pre&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;tickets_available&lt;/span&gt;
+  &lt;span class="n"&gt;quantity_was&lt;/span&gt; &lt;span class="o"&gt;||=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;remaining&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;quantity_was&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;quantity&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+    &lt;span class="n"&gt;errors&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;add&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:quantity&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"too many tickets given"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now for new records &lt;code&gt;quantity_was&lt;/code&gt; will be 0 (as it is nil if the record is not
+yet persisted) or it will contain the number of tickets to correct from the
+record. This will work for new records or updates.&lt;/p&gt;
+
+&lt;p&gt;One additional detail about this validation is what happens in case we need to
+update another attribute different from the quantity of the purchase record. In
+this case the validation above will always pass (as the remaining value will be
+at least 0). So this will work on updates of any attribute but will always fail
+if the quantity of tickets to give is higher than the available ones, which is
+another desirable outcome.&lt;/p&gt;
+</content>
+  </entry>
+</feed>

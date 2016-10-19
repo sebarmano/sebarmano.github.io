@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+  <head>
+    <link
+    href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,600,300,700'
+    rel='stylesheet' type='text/css'>
+    <link href="../../../../../stylesheets/blog.css" rel="stylesheet" />
+    <link href="../../../../../stylesheets/highlighting.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <title>Blog Title - Validation of attributes at different time points</title>
+    <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/blog/feed.xml" />
+  </head>
+  <body>
+    <div id="main" role="main">
+      <div class="blog-wrapper">
+        <nav>
+  <ul>
+    <li>
+      <a class="blog-title" href="/blog/">Sebastian Armano | THE BLOG</a>
+    </li>
+  </ul>
+</nav>
+
+        <p>Say that we are creating an app to sell tickets. The idea is that we have a
+certain amount of tickets to sell and we want to check that we are not
+giving more tickets that the ones we have available.</p>
+
+<p>One simple way of doing this is checking in the server side that the quantity
+we are giving is equal or less than the remaining quantity.</p>
+
+<p>Say that we have a Ticket and a Purchase models in our app like the following:</p>
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</pre></td><td class="code"><pre><span class="c1"># models/ticket.rb</span>
+<span class="k">class</span> <span class="nc">Ticket</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">has_many</span> <span class="ss">:purchases</span>
+  <span class="n">validate</span> <span class="ss">:tickets_available</span>
+
+  <span class="k">def</span> <span class="nf">remaining</span>
+    <span class="n">total</span> <span class="o">-</span> <span class="n">given</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">given</span>
+    <span class="n">purchases</span><span class="p">.</span><span class="nf">pluck</span><span class="p">(</span><span class="ss">:quantity</span><span class="p">).</span><span class="nf">reduce</span><span class="p">(:</span><span class="o">+</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre><span class="c1"># models/purchase.rb</span>
+<span class="k">class</span>  <span class="nc">Purchase</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">belongs_to</span> <span class="ss">:ticket</span>
+
+  <span class="k">def</span> <span class="nf">tickets_available</span>
+    <span class="k">if</span> <span class="n">ticket</span><span class="p">.</span><span class="nf">remaining</span> <span class="o">-</span> <span class="n">quantity</span> <span class="o">&lt;</span> <span class="mi">0</span>
+      <span class="n">errors</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="ss">:quantity</span><span class="p">,</span> <span class="s2">"too many tickets given"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>That seems to work fine until we have to deal with the situation of having to
+<em>update</em> a record with all the tickets given. For example this can happen as
+administrators trying to fix an error in one of the purchased quantity.  We want
+to fix a ticket record of 8 total tickets (and 8 given).  The record to update
+is going to validate with the <code>tickets available</code> method from above. However,
+the count <code>remaining - quantity &lt; 0</code> will return <em>always</em> a negative value, as
+the remaining tickets is 0 (we had 8 tickets given, all the available ones).
+Therefore the validation doesn&rsquo;t pass and we are not able to update the record
+anymore.</p>
+
+<p>Basically, the problem here is that we want to <em>replace</em> the quantity of tickets
+given, but our validation is taking into account the quantity of tickets
+<em>already given</em> in a previous purchase. We need to find a way of counting the
+remaining tickets as if we had the tickets for this record still to give, not
+already given. In other words, we have to simulate as if the customer would have
+given  back the tickets purchased and we correct the purchase giving them the
+right amount of tickets.</p>
+
+<p>To do this, only on update, we need to get the quantity of tickets already given
+(and stored in the record we want to fix), but we know that the variable
+<code>quantity</code> contains the <em>new</em> value of tickets given, not the old one. We need
+the value of <code>quantity</code> in two different points in time, before and after the
+update.</p>
+
+<p>Fortunately Rails has a way of doing this by adding the suffix <code>_was</code> to the
+name of the attribute in order to get its previous value. In this way we can
+replace the method above for the following one:</p>
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="k">def</span> <span class="nf">tickets_available</span>
+  <span class="n">quantity_was</span> <span class="o">||=</span> <span class="mi">0</span>
+  <span class="k">if</span> <span class="n">remaining</span> <span class="o">+</span> <span class="n">quantity_was</span> <span class="o">-</span> <span class="n">quantity</span> <span class="o">&lt;</span> <span class="mi">0</span>
+    <span class="n">errors</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="ss">:quantity</span><span class="p">,</span> <span class="s2">"too many tickets given"</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>Now for new records <code>quantity_was</code> will be 0 (as it is nil if the record is not
+yet persisted) or it will contain the number of tickets to correct from the
+record. This will work for new records or updates.</p>
+
+<p>One additional detail about this validation is what happens in case we need to
+update another attribute different from the quantity of the purchase record. In
+this case the validation above will always pass (as the remaining value will be
+at least 0). So this will work on updates of any attribute but will always fail
+if the quantity of tickets to give is higher than the available ones, which is
+another desirable outcome.</p>
+
+        <footer>
+  <ul class="large-column">
+    <li><h5 class="heading">Recent Articles</h5></li>
+    <li>
+      <ol>
+          <li>
+            <a href="/blog/2016/04/29/field-notes-00003-git-branch-naming/">Field Notes 3 - Push git branches with different name</a>
+            <span> Apr 29 </span>
+          </li>
+          <li>
+            <a href="/blog/2016/04/28/field-notes-00001-json/">Field Notes 1 - Javascript Objects vs JSON</a>
+            <span> Apr 28 </span>
+          </li>
+          <li>
+            <a href="/blog/2016/03/07/was-attribute-validations/">Validation of attributes at different time points</a>
+            <span> Mar  7 </span>
+          </li>
+      </ol>
+    </li>
+  </ul>
+
+  <ul class="small-column">
+    <li>
+      <h5 class="heading">Tags</h5>
+    </li>
+    <li>
+      <ol>
+          <li>
+            <a href="/blog/tags/ruby/">ruby (1)</a>
+          <li>
+            <a href="/blog/tags/rails/">rails (1)</a>
+          <li>
+            <a href="/blog/tags/validations/">validations (1)</a>
+          <li>
+            <a href="/blog/tags/models/">models (1)</a>
+          <li>
+            <a href="/blog/tags/notes/">notes (2)</a>
+          <li>
+            <a href="/blog/tags/json/">json (1)</a>
+          <li>
+            <a href="/blog/tags/javascript/">javascript (1)</a>
+          <li>
+            <a href="/blog/tags/objects/">objects (1)</a>
+          <li>
+            <a href="/blog/tags/git/">git (1)</a>
+          <li>
+            <a href="/blog/tags/branch/">branch (1)</a>
+          <li>
+            <a href="/blog/tags/naming/">naming (1)</a>
+          </li>
+      </ol>
+    </li>
+  </ul>
+</footer>
+
+      </div>
+    </div>
+    <script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-73024335-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>
